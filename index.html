@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Rayne Aurit">
+
+<title>Chocolate Chip Cookies</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="index_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="index_files/libs/quarto-html/anchor.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="index_files/libs/bootstrap/bootstrap-bb462d781dde1847d9e3ccf7736099dd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="index_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+
+<script src="index_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<script src="index_files/libs/plotly-binding-4.12.0/plotly.js"></script>
+
+<script src="index_files/libs/typedarray-0.1/typedarray.min.js"></script>
+
+<script src="index_files/libs/jquery-3.5.1/jquery.min.js"></script>
+
+<link href="index_files/libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+
+<script src="index_files/libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+
+<link href="index_files/libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
+
+<script src="index_files/libs/plotly-main-2.25.2/plotly-latest.min.js"></script>
+
+
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Chocolate Chip Cookies</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Rayne Aurit </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="reading-in-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="reading-in-the-data">Reading In the Data</h2>
+<p>First, read in the CSV data of cookie ingredients. Make sure that your end-result data has appropriate types for each column - these should match the types provided in the documentation in the README.md file.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.1     ✔ stringr   1.5.2
+✔ ggplot2   4.0.0     ✔ tibble    3.3.0
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.1.0     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>cookies <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"choc_chip_cookie_ingredients.csv"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(cookies)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  X        Ingredient                                            Text
+1 1 all purpose flour                      3.0 cups all purpose flour
+2 2 all purpose flour       2.8000000000000003 cups all purpose flour
+3 3 all purpose flour       1.1076923076923078 cups all purpose flour
+4 4 all purpose flour 3.333333333333333 cups sifted all purpose flour
+5 5 all purpose flour                      2.0 cups all purpose flour
+6 6 all purpose flour           9.0 cups unbleached all purpose flour
+  Recipe_Index    Rating Quantity Unit
+1         AR_1 0.9207246 3.000000  cup
+2        AR_10 0.9051620 2.800000  cup
+3       AR_101 0.6000000 1.107692  cup
+4       AR_102 0.9375000 3.333333  cup
+5       AR_103 0.8812500 2.000000  cup
+6       AR_107 0.9272727 9.000000  cup</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>cookies <span class="op">=</span> pd.read_csv(<span class="st">"choc_chip_cookie_ingredients.csv"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cookies.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Unnamed: 0         Ingredient  ...  Quantity Unit
+0           1  all purpose flour  ...  3.000000  cup
+1           2  all purpose flour  ...  2.800000  cup
+2           3  all purpose flour  ...  1.107692  cup
+3           4  all purpose flour  ...  3.333333  cup
+4           5  all purpose flour  ...  2.000000  cup
+
+[5 rows x 7 columns]</code></pre>
+</div>
+</div>
+</section>
+<section id="exploratory-data-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="exploratory-data-analysis">Exploratory Data Analysis</h2>
+<p>Exploratory data analysis is the process of getting familiar with your dataset. To get started, <a href="https://www.mrdbourke.com/a-gentle-introduction-to-exploratory-data-analysis/">this blog post</a> provides a nice checklist to get you thinking:</p>
+<blockquote class="blockquote">
+<ol type="1">
+<li>What question(s) are you trying to solve (or prove wrong)?</li>
+<li>What kind of data do you have and how do you treat different types?</li>
+<li>What’s missing from the data and how do you deal with it?</li>
+<li>Where are the outliers and why should you care about them?</li>
+<li>How can you add, change or remove features to get more out of your data?</li>
+</ol>
+</blockquote>
+<section id="generating-questions" class="level3">
+<h3 class="anchored" data-anchor-id="generating-questions">Generating Questions</h3>
+<p>Generate at least 5 questions you might explore using this database of cookie ingredients.</p>
+<ol type="1">
+<li>Are there any missing data? What should be done about the missing data? Is excluding those instances enough?</li>
+<li>What is the shape of the distribution of the rating?</li>
+<li>What are the categories in unit?</li>
+<li>How many unique recipes are there?</li>
+<li>Is there a correlation between the quantity of ingredients for each recipe?</li>
+</ol>
+<p><em>Bit went over in class</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>cookies <span class="sc">|&gt;</span> <span class="fu">str</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   1990 obs. of  7 variables:
+ $ X           : int  1 2 3 4 5 6 7 8 9 10 ...
+ $ Ingredient  : chr  "all purpose flour" "all purpose flour" "all purpose flour" "all purpose flour" ...
+ $ Text        : chr  "3.0 cups all purpose flour" "2.8000000000000003 cups all purpose flour" "1.1076923076923078 cups all purpose flour" "3.333333333333333 cups sifted all purpose flour" ...
+ $ Recipe_Index: chr  "AR_1" "AR_10" "AR_101" "AR_102" ...
+ $ Rating      : num  0.921 0.905 0.6 0.938 0.881 ...
+ $ Quantity    : num  3 2.8 1.11 3.33 2 ...
+ $ Unit        : chr  "cup" "cup" "cup" "cup" ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>cookies <span class="sc">|&gt;</span> <span class="fu">filter</span>(Recipe_Index<span class="sc">==</span><span class="st">"AR_1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      X               Ingredient                               Text
+1     1        all purpose flour         3.0 cups all purpose flour
+2   251              baking soda           1.0 teaspoon baking soda
+3   636                   butter            1.0 cup butter softened
+4  1038                      egg                           2.0 eggs
+5  1356                     salt                  0.5 teaspoon salt
+6  1557                    sugar                1.0 cup white sugar
+7  1737                  vanilla      2.0 teaspoons vanilla extract
+8  1941                   walnut            1.0 cup chopped walnuts
+9  1980                    water            2.0 teaspoons hot water
+10  447        light brown sugar         1.0 cup packed brown sugar
+11  821 semisweet chocolate chip 2.0 cups semisweet chocolate chips
+   Recipe_Index    Rating Quantity     Unit
+1          AR_1 0.9207246    3.000      cup
+2          AR_1 0.9207246    1.000 teaspoon
+3          AR_1 0.9207246    1.000      cup
+4          AR_1 0.9207246    2.000      egg
+5          AR_1 0.9207246    0.500 teaspoon
+6          AR_1 0.9207246    1.000      cup
+7          AR_1 0.9207246    2.000 teaspoon
+8          AR_1 0.9207246    1.000      cup
+9          AR_1 0.9207246    0.041      cup
+10         AR_1 0.9207246    1.000      cup
+11         AR_1 0.9207246    2.000      cup</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>cookies <span class="sc">|&gt;</span> <span class="fu">group_by</span>(Ingredient) <span class="sc">|&gt;</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_rating =</span> <span class="fu">mean</span>(Rating, <span class="at">na.rm=</span>T), <span class="at">n=</span><span class="fu">n</span>(), <span class="at">missing_ratings =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(Rating))) <span class="sc">|&gt;</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(avg_rating)) <span class="sc">|&gt;</span> </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> n<span class="sc">-</span>missing_ratings, <span class="at">y=</span>avg_rating, <span class="at">label=</span>Ingredient)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 11 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'plotly' was built under R version 4.5.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'plotly'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:ggplot2':
+
+    last_plot</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:stats':
+
+    filter</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:graphics':
+
+    layout</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-7d6a8a501e5403b92b0d" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-7d6a8a501e5403b92b0d">{"x":{"data":[{"x":[1,1,5,3,1,1,1,2,1,2,1,1,1,1,2,2,3,23,1,1,1,5,87,5,7,73,2,88,1,92,99,87,90,91,11,26,25,14,73,3,5,4,14,3,2,4,1,1,2,1,2,2,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0],"y":[0.95555553400000004,0.93333330199999998,0.93067415239999995,0.93016058599999996,0.92727270100000003,0.90573768600000004,0.90000000000000002,0.8906591895,0.88124999999999998,0.87808189400000003,0.87692308399999996,0.875,0.875,0.87333335899999998,0.85538463600000003,0.85333333,0.84277776100000001,0.84123439578260872,0.83076925300000004,0.82886600499999996,0.82666664099999998,0.82643789280000002,0.8245538426321839,0.82396274579999995,0.82309333257142858,0.82285142527397259,0.82129380699999999,0.81836220780681823,0.81818180100000004,0.81627644349999995,0.81592172756565662,0.8156287615172414,0.81549533417777775,0.81442703096703295,0.80858795427272723,0.80587039723076925,0.80365381999999996,0.80358636035714281,0.80183418416438357,0.80169587133333331,0.79379072179999999,0.78829740299999995,0.7877965927142857,0.78627449666666671,0.77638888350000002,0.75,0.75,0.75,0.72897436649999992,0.72374100699999999,0.67285714149999998,0.65321943800000004,0.59999999999999998,0.59999999999999998,0.58461537399999997,0.5,0.47619047199999998,null,null,null,null,null,null,null,null,null,null,null],"text":["n - missing_ratings:  1<br />avg_rating: 0.9555555<br />Ingredient: corn syrup","n - missing_ratings:  1<br />avg_rating: 0.9333333<br />Ingredient: bourbon","n - missing_ratings:  5<br />avg_rating: 0.9306742<br />Ingredient: pudding mix","n - missing_ratings:  3<br />avg_rating: 0.9301606<br />Ingredient: nuts","n - missing_ratings:  1<br />avg_rating: 0.9272727<br />Ingredient: coconut extract","n - missing_ratings:  1<br />avg_rating: 0.9057377<br />Ingredient: instant coffee","n - missing_ratings:  1<br />avg_rating: 0.9000000<br />Ingredient: white pepper","n - missing_ratings:  2<br />avg_rating: 0.8906592<br />Ingredient: almonds","n - missing_ratings:  1<br />avg_rating: 0.8812500<br />Ingredient: toffee","n - missing_ratings:  2<br />avg_rating: 0.8780819<br />Ingredient: peanut butter","n - missing_ratings:  1<br />avg_rating: 0.8769231<br />Ingredient: zucchini","n - missing_ratings:  1<br />avg_rating: 0.8750000<br />Ingredient: brown rice flour","n - missing_ratings:  1<br />avg_rating: 0.8750000<br />Ingredient: xanthan gum","n - missing_ratings:  1<br />avg_rating: 0.8733334<br />Ingredient: macadmia","n - missing_ratings:  2<br />avg_rating: 0.8553846<br />Ingredient: crispy rice","n - missing_ratings:  2<br />avg_rating: 0.8533333<br />Ingredient: honey","n - missing_ratings:  3<br />avg_rating: 0.8427778<br />Ingredient: cake mix","n - missing_ratings: 23<br />avg_rating: 0.8412344<br />Ingredient: shortening","n - missing_ratings:  1<br />avg_rating: 0.8307693<br />Ingredient: wheat","n - missing_ratings:  1<br />avg_rating: 0.8288660<br />Ingredient: almond extract","n - missing_ratings:  1<br />avg_rating: 0.8266666<br />Ingredient: peanut butter chips","n - missing_ratings:  5<br />avg_rating: 0.8264379<br />Ingredient: white chocolate chip","n - missing_ratings: 87<br />avg_rating: 0.8245538<br />Ingredient: baking soda","n - missing_ratings:  5<br />avg_rating: 0.8239627<br />Ingredient: pecan","n - missing_ratings:  7<br />avg_rating: 0.8230933<br />Ingredient: margarine","n - missing_ratings: 73<br />avg_rating: 0.8228514<br />Ingredient: salt","n - missing_ratings:  2<br />avg_rating: 0.8212938<br />Ingredient: liquer","n - missing_ratings: 88<br />avg_rating: 0.8183622<br />Ingredient: sugar","n - missing_ratings:  1<br />avg_rating: 0.8181818<br />Ingredient: cream","n - missing_ratings: 92<br />avg_rating: 0.8162764<br />Ingredient: all purpose flour","n - missing_ratings: 99<br />avg_rating: 0.8159217<br />Ingredient: egg","n - missing_ratings: 87<br />avg_rating: 0.8156288<br />Ingredient: semisweet chocolate chip","n - missing_ratings: 90<br />avg_rating: 0.8154953<br />Ingredient: light brown sugar","n - missing_ratings: 91<br />avg_rating: 0.8144270<br />Ingredient: vanilla","n - missing_ratings: 11<br />avg_rating: 0.8085880<br />Ingredient: milk","n - missing_ratings: 26<br />avg_rating: 0.8058704<br />Ingredient: walnut","n - missing_ratings: 25<br />avg_rating: 0.8036538<br />Ingredient: baking powder","n - missing_ratings: 14<br />avg_rating: 0.8035864<br />Ingredient: oat","n - missing_ratings: 73<br />avg_rating: 0.8018342<br />Ingredient: butter","n - missing_ratings:  3<br />avg_rating: 0.8016959<br />Ingredient: tartar","n - missing_ratings:  5<br />avg_rating: 0.7937907<br />Ingredient: vegetable oil","n - missing_ratings:  4<br />avg_rating: 0.7882974<br />Ingredient: cinnamon","n - missing_ratings: 14<br />avg_rating: 0.7877966<br />Ingredient: milk chocolate chip","n - missing_ratings:  3<br />avg_rating: 0.7862745<br />Ingredient: dark chocolate chip","n - missing_ratings:  2<br />avg_rating: 0.7763889<br />Ingredient: sour cream","n - missing_ratings:  4<br />avg_rating: 0.7500000<br />Ingredient: bittersweet chocolate chip","n - missing_ratings:  1<br />avg_rating: 0.7500000<br />Ingredient: nestle","n - missing_ratings:  1<br />avg_rating: 0.7500000<br />Ingredient: raisins","n - missing_ratings:  2<br />avg_rating: 0.7289744<br />Ingredient: coconut","n - missing_ratings:  1<br />avg_rating: 0.7237410<br />Ingredient: applesauce","n - missing_ratings:  2<br />avg_rating: 0.6728571<br />Ingredient: cake flour","n - missing_ratings:  2<br />avg_rating: 0.6532194<br />Ingredient: water","n - missing_ratings:  1<br />avg_rating: 0.6000000<br />Ingredient: graham cracker","n - missing_ratings:  1<br />avg_rating: 0.6000000<br />Ingredient: maple","n - missing_ratings:  1<br />avg_rating: 0.5846154<br />Ingredient: marshmallows","n - missing_ratings:  1<br />avg_rating: 0.5000000<br />Ingredient: bread flour","n - missing_ratings:  1<br />avg_rating: 0.4761905<br />Ingredient: cookie mix","n - missing_ratings:  0<br />avg_rating:       NaN<br />Ingredient: chocolate raisin","n - missing_ratings:  0<br />avg_rating:       NaN<br />Ingredient: coriander","n - missing_ratings:  0<br />avg_rating:       NaN<br />Ingredient: cornstarch","n - missing_ratings:  0<br />avg_rating:       NaN<br />Ingredient: dark brown sugar","n - missing_ratings:  0<br />avg_rating:       NaN<br />Ingredient: espresso","n - missing_ratings:  0<br />avg_rating:       NaN<br />Ingredient: flour","n - missing_ratings:  0<br />avg_rating:       NaN<br />Ingredient: lemon juice","n - missing_ratings:  0<br />avg_rating:       NaN<br />Ingredient: molasses","n - missing_ratings:  0<br />avg_rating:       NaN<br />Ingredient: nutmeg","n - missing_ratings:  0<br />avg_rating:       NaN<br />Ingredient: vinegar","n - missing_ratings:  0<br />avg_rating:       NaN<br />Ingredient: wheat flour"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":37.260273972602747,"l":43.105022831050235},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-4.9500000000000002,103.95],"tickmode":"array","ticktext":["0","25","50","75","100"],"tickvals":[0,25,50,75,100],"categoryorder":"array","categoryarray":["0","25","50","75","100"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"n - missing_ratings","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.45222221889999997,0.97952378709999999],"tickmode":"array","ticktext":["0.5","0.6","0.7","0.8","0.9"],"tickvals":[0.5,0.59999999999999998,0.69999999999999996,0.80000000000000004,0.90000000000000002],"categoryorder":"array","categoryarray":["0.5","0.6","0.7","0.8","0.9"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"avg_rating","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"17886df0235d":{"x":{},"y":{},"label":{},"type":"scatter"}},"cur_data":"17886df0235d","visdat":{"17886df0235d":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="skimming-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="skimming-the-data">Skimming the Data</h3>
+<p>One thing we often want to do during EDA is to examine the quality of the data - are there missing values? What quirks might exist in the data set?</p>
+<p>The <code>skimr</code> package in R, and the similar <code>skimpy</code> package in python (which has a much better name, in my opinion), can help provide visual summaries of the data.</p>
+<p>Install both packages, and read the package documentation (<a href="https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html">R</a>, <a href="https://pypi.org/project/skimpy/">Python</a>).</p>
+<p>[Part 1] Use each package and generate summaries of your data that require the use of at least some non-default options in each package’s <code>skim</code> function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("skimr")</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'skimr' was built under R version 4.5.2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(cookies) <span class="sc">|&gt;</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">as_tibble</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 17
+  skim_type skim_variable n_missing complete_rate character.min character.max
+  &lt;chr&gt;     &lt;chr&gt;             &lt;int&gt;         &lt;dbl&gt;         &lt;int&gt;         &lt;int&gt;
+1 character Ingredient            0         1                 3            26
+2 character Text                  0         1                 7           252
+3 character Recipe_Index          0         1                 4             8
+4 character Unit                  0         1                 3            10
+5 numeric   X                     0         1                NA            NA
+6 numeric   Rating             1010         0.492            NA            NA
+7 numeric   Quantity              0         1                NA            NA
+# ℹ 11 more variables: character.empty &lt;int&gt;, character.n_unique &lt;int&gt;,
+#   character.whitespace &lt;int&gt;, numeric.mean &lt;dbl&gt;, numeric.sd &lt;dbl&gt;,
+#   numeric.p0 &lt;dbl&gt;, numeric.p25 &lt;dbl&gt;, numeric.p50 &lt;dbl&gt;, numeric.p75 &lt;dbl&gt;,
+#   numeric.p100 &lt;dbl&gt;, numeric.hist &lt;chr&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(cookies) <span class="sc">|&gt;</span> </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(skim_variable <span class="sc">==</span> <span class="st">"Rating"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">cookies</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of rows</td>
+<td style="text-align: left;">1990</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of columns</td>
+<td style="text-align: left;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">_______________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Column type frequency:</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">________________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Group variables</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 12%">
+<col style="width: 17%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">p0</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p100</th>
+<th style="text-align: left;">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Rating</td>
+<td style="text-align: right;">1010</td>
+<td style="text-align: right;">0.49</td>
+<td style="text-align: right;">0.81</td>
+<td style="text-align: right;">0.14</td>
+<td style="text-align: right;">0.38</td>
+<td style="text-align: right;">0.75</td>
+<td style="text-align: right;">0.87</td>
+<td style="text-align: right;">0.91</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">▁▂▃▆▇</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> skimpy <span class="im">import</span> skim</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>skim(cookies)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>┌────────────────────────────── skimpy summary ───────────────────────────────┐
+│          Data Summary                Data Types                             │
+│ ┌───────────────────┬────────┐ ┌─────────────┬───────┐                      │
+│ │ Dataframe         │ Values │ │ Column Type │ Count │                      │
+│ ├───────────────────┼────────┤ ├─────────────┼───────┤                      │
+│ │ Number of rows    │ 1990   │ │ string      │ 4     │                      │
+│ │ Number of columns │ 7      │ │ float64     │ 2     │                      │
+│ └───────────────────┴────────┘ │ int64       │ 1     │                      │
+│                                └─────────────┴───────┘                      │
+│                                   number                                    │
+│ ┌──────┬──────┬──────┬──────┬─────┬──────┬─────┬──────┬─────┬──────┬─────┐  │
+│ │ colu │      │      │      │     │      │     │      │     │      │ his │  │
+│ │ mn   │ NA   │ NA % │ mean │ sd  │ p0   │ p25 │ p50  │ p75 │ p100 │ t   │  │
+│ ├──────┼──────┼──────┼──────┼─────┼──────┼─────┼──────┼─────┼──────┼─────┤  │
+│ │ Unna │    0 │    0 │ 995. │ 574 │    1 │ 498 │ 995. │ 149 │ 1990 │ ▇▇▇ │  │
+│ │ med: │      │      │    5 │  .6 │      │  .2 │    5 │   3 │      │ ▇▇▇ │  │
+│ │  0   │      │      │      │     │      │     │      │     │      │     │  │
+│ │ Rati │ 1010 │ 50.7 │ 0.81 │ 0.1 │ 0.37 │ 0.7 │ 0.87 │ 0.9 │    1 │  ▁  │  │
+│ │ ng   │      │ 5376 │    5 │ 356 │    5 │   5 │   03 │  09 │      │ ▃▃▇ │  │
+│ │      │      │ 8844 │      │     │      │     │      │     │      │  ▇  │  │
+│ │      │      │ 2211 │      │     │      │     │      │     │      │     │  │
+│ │      │      │   06 │      │     │      │     │      │     │      │     │  │
+│ │ Quan │    0 │    0 │ 2.23 │ 2.5 │    0 │   1 │ 1.64 │ 2.6 │   48 │  ▇  │  │
+│ │ tity │      │      │    4 │   3 │      │     │      │  67 │      │     │  │
+│ └──────┴──────┴──────┴──────┴─────┴──────┴─────┴──────┴─────┴──────┴─────┘  │
+│                                   string                                    │
+│ ┌───────┬────┬──────┬───────┬──────┬───────┬──────┬───────┬──────┬───────┐  │
+│ │       │    │      │       │      │       │      │       │ word │       │  │
+│ │       │    │      │       │      │       │      │ chars │ s    │       │  │
+│ │ colum │    │      │ short │ long │       │      │ per   │ per  │ total │  │
+│ │ n     │ NA │ NA % │ est   │ est  │ min   │ max  │ row   │ row  │ words │  │
+│ ├───────┼────┼──────┼───────┼──────┼───────┼──────┼───────┼──────┼───────┤  │
+│ │ Ingre │  0 │    0 │ egg   │ bitt │ all   │ zucc │  10.4 │  1.8 │  3496 │  │
+│ │ dient │    │      │       │ ersw │ purpo │ hini │       │      │       │  │
+│ │       │    │      │       │ eet  │ se    │      │       │      │       │  │
+│ │       │    │      │       │ choc │ flour │      │       │      │       │  │
+│ │       │    │      │       │ olat │       │      │       │      │       │  │
+│ │       │    │      │       │ e    │       │      │       │      │       │  │
+│ │       │    │      │       │ chip │       │      │       │      │       │  │
+│ │ Text  │  0 │    0 │ 1.0   │ 2.4  │ 0.0   │ 96.0 │  31.8 │  4.8 │  9560 │  │
+│ │       │    │      │ egg   │ stic │ cup/5 │ tabl │       │      │       │  │
+│ │       │    │      │       │ ks   │ 0.0   │ espo │       │      │       │  │
+│ │       │    │      │       │ unsa │ grams │ ons  │       │      │       │  │
+│ │       │    │      │       │ lted │ all   │ soft │       │      │       │  │
+│ │       │    │      │       │      │ purpo │ brow │       │      │       │  │
+│ │       │    │      │       │ butt │ se    │ n    │       │      │       │  │
+│ │       │    │      │       │ er,  │ flour │ suga │       │      │       │  │
+│ │       │    │      │       │ at   │       │ r    │       │      │       │  │
+│ │       │    │      │       │ room │       │      │       │      │       │  │
+│ │       │    │      │       │ temp │       │      │       │      │       │  │
+│ │       │    │      │       │ erat │       │      │       │      │       │  │
+│ │       │    │      │       │ ure  │       │      │       │      │       │  │
+│ │       │    │      │       │ 1    │       │      │       │      │       │  │
+│ │       │    │      │       │ cup  │       │      │       │      │       │  │
+│ │       │    │      │       │ pack │       │      │       │      │       │  │
+│ │       │    │      │       │ ed   │       │      │       │      │       │  │
+│ │       │    │      │       │ dark │       │      │       │      │       │  │
+│ │       │    │      │       │ brow │       │      │       │      │       │  │
+│ │       │    │      │       │ n    │       │      │       │      │       │  │
+│ │       │    │      │       │ suga │       │      │       │      │       │  │
+│ │       │    │      │       │ r    │       │      │       │      │       │  │
+│ │       │    │      │       │ 1/2. │       │      │       │      │       │  │
+│ │       │    │      │       │ 4    │       │      │       │      │       │  │
+│ │       │    │      │       │ cup  │       │      │       │      │       │  │
+│ │       │    │      │       │ gran │       │      │       │      │       │  │
+│ │       │    │      │       │ ulat │       │      │       │      │       │  │
+│ │       │    │      │       │ ed   │       │      │       │      │       │  │
+│ │       │    │      │       │ suga │       │      │       │      │       │  │
+│ │       │    │      │       │ r 1  │       │      │       │      │       │  │
+│ │       │    │      │       │ teas │       │      │       │      │       │  │
+│ │       │    │      │       │ poon │       │      │       │      │       │  │
+│ │       │    │      │       │      │       │      │       │      │       │  │
+│ │       │    │      │       │ vani │       │      │       │      │       │  │
+│ │       │    │      │       │ lla  │       │      │       │      │       │  │
+│ │       │    │      │       │ extr │       │      │       │      │       │  │
+│ │       │    │      │       │ act  │       │      │       │      │       │  │
+│ │       │    │      │       │ 1    │       │      │       │      │       │  │
+│ │       │    │      │       │ larg │       │      │       │      │       │  │
+│ │       │    │      │       │ e    │       │      │       │      │       │  │
+│ │       │    │      │       │ egg  │       │      │       │      │       │  │
+│ │       │    │      │       │ 2.4  │       │      │       │      │       │  │
+│ │       │    │      │       │ 3/4  │       │      │       │      │       │  │
+│ │       │    │      │       │ cups │       │      │       │      │       │  │
+│ │       │    │      │       │ all  │       │      │       │      │       │  │
+│ │       │    │      │       │ purp │       │      │       │      │       │  │
+│ │       │    │      │       │ ose  │       │      │       │      │       │  │
+│ │       │    │      │       │ flou │       │      │       │      │       │  │
+│ │       │    │      │       │ r    │       │      │       │      │       │  │
+│ │       │    │      │       │ kosh │       │      │       │      │       │  │
+│ │       │    │      │       │ er   │       │      │       │      │       │  │
+│ │       │    │      │       │ salt │       │      │       │      │       │  │
+│ │       │    │      │       │ 1    │       │      │       │      │       │  │
+│ │       │    │      │       │ 1/4  │       │      │       │      │       │  │
+│ │       │    │      │       │ teas │       │      │       │      │       │  │
+│ │       │    │      │       │ poon │       │      │       │      │       │  │
+│ │       │    │      │       │ s    │       │      │       │      │       │  │
+│ │       │    │      │       │ baki │       │      │       │      │       │  │
+│ │       │    │      │       │ ng   │       │      │       │      │       │  │
+│ │       │    │      │       │ soda │       │      │       │      │       │  │
+│ │       │    │      │       │ 12.4 │       │      │       │      │       │  │
+│ │       │    │      │       │ ounc │       │      │       │      │       │  │
+│ │       │    │      │       │ es   │       │      │       │      │       │  │
+│ │       │    │      │       │ semi │       │      │       │      │       │  │
+│ │       │    │      │       │ swee │       │      │       │      │       │  │
+│ │       │    │      │       │ t    │       │      │       │      │       │  │
+│ │       │    │      │       │ choc │       │      │       │      │       │  │
+│ │       │    │      │       │ olat │       │      │       │      │       │  │
+│ │       │    │      │       │ e    │       │      │       │      │       │  │
+│ │       │    │      │       │ chip │       │      │       │      │       │  │
+│ │       │    │      │       │ s    │       │      │       │      │       │  │
+│ │ Recip │  0 │    0 │ AR_1  │ Misc │ AR_1  │ Misc │   6.1 │    1 │  1990 │  │
+│ │ e_Ind │    │      │       │ _101 │       │ _99  │       │      │       │  │
+│ │ ex    │    │      │       │      │       │      │       │      │       │  │
+│ │ Unit  │  0 │    0 │ cup   │ tabl │ cup   │ teas │  4.69 │    1 │  1990 │  │
+│ │       │    │      │       │ espo │       │ poon │       │      │       │  │
+│ │       │    │      │       │ on   │       │      │       │      │       │  │
+│ └───────┴────┴──────┴───────┴──────┴───────┴──────┴───────┴──────┴───────┘  │
+└──────────────────────────────────── End ────────────────────────────────────┘</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>skim(cookies[[<span class="st">"Rating"</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>┌────────────────────────────── skimpy summary ───────────────────────────────┐
+│          Data Summary                Data Types                             │
+│ ┌───────────────────┬────────┐ ┌─────────────┬───────┐                      │
+│ │ Dataframe         │ Values │ │ Column Type │ Count │                      │
+│ ├───────────────────┼────────┤ ├─────────────┼───────┤                      │
+│ │ Number of rows    │ 1990   │ │ float64     │ 1     │                      │
+│ │ Number of columns │ 1      │ └─────────────┴───────┘                      │
+│ └───────────────────┴────────┘                                              │
+│                                   number                                    │
+│ ┌──────┬──────┬──────┬──────┬─────┬──────┬─────┬──────┬─────┬──────┬─────┐  │
+│ │ colu │      │      │      │     │      │     │      │     │      │ his │  │
+│ │ mn   │ NA   │ NA % │ mean │ sd  │ p0   │ p25 │ p50  │ p75 │ p100 │ t   │  │
+│ ├──────┼──────┼──────┼──────┼─────┼──────┼─────┼──────┼─────┼──────┼─────┤  │
+│ │ Rati │ 1010 │ 50.7 │ 0.81 │ 0.1 │ 0.37 │ 0.7 │ 0.87 │ 0.9 │    1 │  ▁  │  │
+│ │ ng   │      │ 5376 │    5 │ 356 │    5 │   5 │   03 │  09 │      │ ▃▃▇ │  │
+│ │      │      │ 8844 │      │     │      │     │      │     │      │  ▇  │  │
+│ │      │      │ 2211 │      │     │      │     │      │     │      │     │  │
+│ │      │      │   06 │      │     │      │     │      │     │      │     │  │
+│ └──────┴──────┴──────┴──────┴─────┴──────┴─────┴──────┴─────┴──────┴─────┘  │
+└──────────────────────────────────── End ────────────────────────────────────┘</code></pre>
+</div>
+</div>
+<p>[Part 2] Write 1-2 sentences about what you can tell from each summary display you generate. Did you discover anything new about the data?</p>
+<p><em>I discovered upon looking closer at the table that Rating has a lot of missing values. The same are done in both R and python. I enjoyed how it has different outputs for different classes of variables. When the variable was a string, it displayed the minimum and maximum characters in the string. If numeric, it provided the summary statistics.</em></p>
+</section>
+<section id="generating-tables" class="level3">
+<h3 class="anchored" data-anchor-id="generating-tables">Generating Tables</h3>
+<p>Another useful technique for exploratory data analysis is to generate summary tables. You may want to use the <code>dplyr</code> package in R (<code>group_by</code> or <code>count</code> functions), as well as the <code>groupby</code> and <code>count</code> methods in Pandas. <a href="https://sparkbyexamples.com/pandas/pandas-groupby-count-examples/">Python example</a>, <a href="https://dplyr.tidyverse.org/reference/count.html">R example</a></p>
+<p>[Part 1] Using R and Python, generate a table that shows what <strong>proportion</strong> of recipes contain each type of ingredient, for the most common 20 ingredients.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>n_recipes <span class="ot">&lt;-</span> <span class="fu">n_distinct</span>(cookies<span class="sc">$</span>Recipe_Index)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>top <span class="ot">=</span> cookies <span class="sc">|&gt;</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Ingredient) <span class="sc">|&gt;</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">prop =</span> <span class="fu">n_distinct</span>(Recipe_Index) <span class="sc">/</span> n_recipes) <span class="sc">|&gt;</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(prop))</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>top[<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 20 × 2
+   Ingredient                   prop
+   &lt;chr&gt;                       &lt;dbl&gt;
+ 1 egg                        0.976 
+ 2 vanilla                    0.938 
+ 3 all purpose flour          0.923 
+ 4 baking soda                0.895 
+ 5 sugar                      0.833 
+ 6 light brown sugar          0.813 
+ 7 salt                       0.799 
+ 8 butter                     0.761 
+ 9 semisweet chocolate chip   0.746 
+10 baking powder              0.239 
+11 walnut                     0.187 
+12 milk chocolate chip        0.148 
+13 shortening                 0.139 
+14 dark brown sugar           0.0909
+15 oat                        0.0909
+16 bittersweet chocolate chip 0.0813
+17 milk                       0.0718
+18 margarine                  0.0526
+19 pecan                      0.0526
+20 dark chocolate chip        0.0431</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>n_recipes <span class="op">=</span> cookies[<span class="st">"Recipe_Index"</span>].nunique()</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>top <span class="op">=</span> (</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    cookies</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>        .groupby(<span class="st">"Ingredient"</span>)[<span class="st">"Recipe_Index"</span>]</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>        .nunique()</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>        .div(n_recipes)</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>        .sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>        .reset_index(name<span class="op">=</span><span class="st">"prop"</span>)</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>top.head(<span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                    Ingredient      prop
+0                          egg  0.976077
+1                      vanilla  0.937799
+2            all purpose flour  0.923445
+3                  baking soda  0.894737
+4                        sugar  0.832536
+5            light brown sugar  0.813397
+6                         salt  0.799043
+7                       butter  0.760766
+8     semisweet chocolate chip  0.746411
+9                baking powder  0.239234
+10                      walnut  0.186603
+11         milk chocolate chip  0.148325
+12                  shortening  0.138756
+13                         oat  0.090909
+14            dark brown sugar  0.090909
+15  bittersweet chocolate chip  0.081340
+16                        milk  0.071770
+17                       pecan  0.052632
+18                   margarine  0.052632
+19        white chocolate chip  0.043062</code></pre>
+</div>
+</div>
+<p>[Part 2] Print out a character string that lists all of the ingredients that do not appear in at least 20 recipes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>topnah <span class="ot">=</span> cookies <span class="sc">|&gt;</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Ingredient) <span class="sc">|&gt;</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n_recipes =</span> <span class="fu">n_distinct</span>(Recipe_Index)) <span class="sc">|&gt;</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n_recipes)) <span class="sc">|&gt;</span> </span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n_recipes <span class="sc">&lt;</span> <span class="dv">20</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(Ingredient)</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(topnah, <span class="at">collapse =</span> <span class="st">", "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "dark brown sugar, oat, bittersweet chocolate chip, milk, margarine, pecan, dark chocolate chip, nuts, white chocolate chip, bread flour, cornstarch, cake flour, pudding mix, cinnamon, vegetable oil, almond extract, water, cake mix, crispy rice, tartar, vinegar, wheat flour, almonds, coconut, corn syrup, honey, liquer, maple, nutmeg, peanut butter, sour cream, toffee, applesauce, bourbon, brown rice flour, chocolate raisin, coconut extract, cookie mix, coriander, cream, espresso, flour, graham cracker, instant coffee, lemon juice, macadmia, marshmallows, molasses, nestle, peanut butter chips, raisins, wheat, white pepper, xanthan gum, zucchini"</code></pre>
+</div>
+</div>
+</section>
+<section id="visualization" class="level3">
+<h3 class="anchored" data-anchor-id="visualization">Visualization</h3>
+<p>Using whatever plotting system you are comfortable with in R or python, see if you can create a couple of useful exploratory data visualizations which address one of the questions you wrote above - or another question which you’ve come up with as you’ve worked on this assignment.</p>
+<p>[Part 1] Create at least one plot (it doesn’t have to be pretty) that showcases an interesting facet of the data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>cookies <span class="sc">|&gt;</span> <span class="fu">str</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   1990 obs. of  7 variables:
+ $ X           : int  1 2 3 4 5 6 7 8 9 10 ...
+ $ Ingredient  : chr  "all purpose flour" "all purpose flour" "all purpose flour" "all purpose flour" ...
+ $ Text        : chr  "3.0 cups all purpose flour" "2.8000000000000003 cups all purpose flour" "1.1076923076923078 cups all purpose flour" "3.333333333333333 cups sifted all purpose flour" ...
+ $ Recipe_Index: chr  "AR_1" "AR_10" "AR_101" "AR_102" ...
+ $ Rating      : num  0.921 0.905 0.6 0.938 0.881 ...
+ $ Quantity    : num  3 2.8 1.11 3.33 2 ...
+ $ Unit        : chr  "cup" "cup" "cup" "cup" ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>cookies <span class="sc">|&gt;</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Recipe_Index) <span class="sc">|&gt;</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">rating =</span> <span class="fu">mean</span>(Rating, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> rating)) <span class="sc">+</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">15</span>) <span class="sc">+</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Recipe rating"</span>,<span class="at">y =</span> <span class="st">"Number of recipes"</span>,<span class="at">title =</span> <span class="st">"Distribution of unique recipe ratings"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 111 rows containing non-finite outside the scale range
+(`stat_bin()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 111 rows containing non-finite outside the scale range
+(`stat_bin()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-d537902809db405e861c" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-d537902809db405e861c">{"x":{"data":[{"orientation":"v","width":[0.044642857142857206,0.044642857142857206,0.044642857142857206,0.044642857142857151,0.044642857142857206,0.044642857142857206,0.044642857142857206,0.044642857142857206,0.044642857142857206,0.044642857142857206,0.044642857142857206,0.044642857142857206,0.044642857142857206,0.044642857142856984,0.044642857142857206],"base":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"x":[0.375,0.41964285714285721,0.4642857142857143,0.5089285714285714,0.5535714285714286,0.59821428571428581,0.64285714285714279,0.6875,0.73214285714285721,0.77678571428571441,0.8214285714285714,0.8660714285714286,0.91071428571428581,0.9553571428571429,1],"y":[2,0,2,2,0,6,3,4,11,2,9,24,23,7,3],"text":["count:  2<br />rating: 0.3750000","count:  0<br />rating: 0.4196429","count:  2<br />rating: 0.4642857","count:  2<br />rating: 0.5089286","count:  0<br />rating: 0.5535714","count:  6<br />rating: 0.5982143","count:  3<br />rating: 0.6428571","count:  4<br />rating: 0.6875000","count: 11<br />rating: 0.7321429","count:  2<br />rating: 0.7767857","count:  9<br />rating: 0.8214286","count: 24<br />rating: 0.8660714","count: 23<br />rating: 0.9107143","count:  7<br />rating: 0.9553571","count:  3<br />rating: 1.0000000"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(89,89,89,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":40.840182648401829,"r":7.3059360730593621,"b":37.260273972602747,"l":37.260273972602747},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"Distribution of unique recipe ratings","font":{"color":"rgba(0,0,0,1)","family":"","size":17.534246575342465},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.31919642857142855,1.0558035714285714],"tickmode":"array","ticktext":["0.5","0.7","0.9"],"tickvals":[0.5,0.70000000000000018,0.90000000000000013],"categoryorder":"array","categoryarray":["0.5","0.7","0.9"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"Recipe rating","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-1.2000000000000002,25.199999999999999],"tickmode":"array","ticktext":["0","5","10","15","20","25"],"tickvals":[0,5,10,15,20,25],"categoryorder":"array","categoryarray":["0","5","10","15","20","25"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Number of recipes","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"178876c44dfc":{"x":{},"type":"bar"}},"cur_data":"178876c44dfc","visdat":{"178876c44dfc":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>Other area for plot so <code>ggplotly()</code> works</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>cookies <span class="sc">|&gt;</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Recipe_Index) <span class="sc">|&gt;</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n_ingredients =</span> <span class="fu">n</span>(), <span class="at">rating =</span> <span class="fu">mean</span>(Rating, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> n_ingredients, <span class="at">y =</span> rating, <span class="at">label=</span>Recipe_Index)) <span class="sc">+</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Number of ingredients"</span>,<span class="at">y =</span> <span class="st">"Recipe rating"</span>,<span class="at">title =</span> <span class="st">"Ingredients vs Rating"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 111 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-e03535afc97693c1e854" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-e03535afc97693c1e854">{"x":{"data":[{"x":[11,11,16,10,10,10,10,11,9,13,9,4,9,11,11,11,10,10,13,11,9,9,11,9,10,10,12,10,7,13,5,10,8,11,10,10,5,10,11,11,11,9,9,10,10,13,9,9,14,15,10,8,9,9,12,10,10,5,11,9,9,11,9,10,11,10,13,10,9,10,11,9,10,9,13,10,14,10,9,6,7,10,6,11,9,12,11,9,11,11,10,10,11,8,11,7,10,9,10,11,9,11,11,10,10,8,8,9,5,11,13,10,11,10,10,8,7,9,9,8,10,9,10,12,12,9,10,11,9,8,10,4,10,9,9,10,5,13,10,9,9,8,9,9,10,10,10,5,10,9,8,8,9,9,10,10,12,11,9,11,10,12,7,10,11,9,8,7,10,10,13,10,9,1,9,9,9,10,10,3,6,11,9,10,10,9,5,7,12,9,11,9,8,7,12,10,7,9,10,9,9,6,8,11,5,9,7,7,9],"y":[0.92072458300000004,0.905162048,0.59999999999999998,0.9375,0.88124999999999998,0.92727270100000003,0.86774196599999998,0.87179489099999996,0.90289192200000001,0.86829271299999999,1,0.80000000000000004,0.84799995399999994,0.83076925300000004,0.84571428299999996,0.87346935299999995,0.71428570700000005,0.90901641799999999,0.90666665999999996,0.58461537399999997,0.78461537400000003,0.67142858500000002,0.44285712199999999,0.92430276899999997,0.93113517800000001,0.92429447200000003,0.85882349000000002,0.91701240500000003,0.87372884799999995,0.88000001900000002,0.585714293,0.78592963199999999,0.70652174899999998,0.93798198700000002,0.88194446599999998,0.87741937599999997,0.86999998099999998,0.87025318100000004,0.90000000000000002,0.87692308399999996,0.87333335899999998,null,0.91798677399999995,0.85982904400000004,0.83076925300000004,0.82666664099999998,0.84363632200000005,0.80000000000000004,0.59999999999999998,0.92298507699999999,0.82886600499999996,0.82105264700000002,0.71250000000000002,0.67777776700000003,0.59259257300000001,0.93734178499999998,0.66500000999999997,0.47619047199999998,0.69247312500000002,0.72374100699999999,0.38571429299999999,0.59550561899999999,0.90200290699999996,0.93913040199999998,0.92079210300000003,0.89633512500000001,0.91003809000000002,0.915186214,0.63333334900000005,0.94244604099999996,0.90573768600000004,0.95555553400000004,0.90989007899999996,0.90260868100000002,0.92830190700000004,0.84406776400000005,0.81818180100000004,0.93333330199999998,0.90666665999999996,0.85833330200000002,0.75,0.5,0.5,0.875,0.75,0.875,0.75,0.875,0.75,0.875,0.625,0.75,1,0.75,0.75,0.75,0.375,0.875,1,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],"text":["n_ingredients: 11<br />rating: 0.9207246<br />Recipe_Index: AR_1","n_ingredients: 11<br />rating: 0.9051620<br />Recipe_Index: AR_10","n_ingredients: 16<br />rating: 0.6000000<br />Recipe_Index: AR_101","n_ingredients: 10<br />rating: 0.9375000<br />Recipe_Index: AR_102","n_ingredients: 10<br />rating: 0.8812500<br />Recipe_Index: AR_103","n_ingredients: 10<br />rating: 0.9272727<br />Recipe_Index: AR_107","n_ingredients: 10<br />rating: 0.8677420<br />Recipe_Index: AR_108","n_ingredients: 11<br />rating: 0.8717949<br />Recipe_Index: AR_109","n_ingredients:  9<br />rating: 0.9028919<br />Recipe_Index: AR_11","n_ingredients: 13<br />rating: 0.8682927<br />Recipe_Index: AR_110","n_ingredients:  9<br />rating: 1.0000000<br />Recipe_Index: AR_111","n_ingredients:  4<br />rating: 0.8000000<br />Recipe_Index: AR_113","n_ingredients:  9<br />rating: 0.8480000<br />Recipe_Index: AR_116","n_ingredients: 11<br />rating: 0.8307693<br />Recipe_Index: AR_118","n_ingredients: 11<br />rating: 0.8457143<br />Recipe_Index: AR_119","n_ingredients: 11<br />rating: 0.8734694<br />Recipe_Index: AR_12","n_ingredients: 10<br />rating: 0.7142857<br />Recipe_Index: AR_128","n_ingredients: 10<br />rating: 0.9090164<br />Recipe_Index: AR_13","n_ingredients: 13<br />rating: 0.9066667<br />Recipe_Index: AR_14","n_ingredients: 11<br />rating: 0.5846154<br />Recipe_Index: AR_140","n_ingredients:  9<br />rating: 0.7846154<br />Recipe_Index: AR_141","n_ingredients:  9<br />rating: 0.6714286<br />Recipe_Index: AR_142","n_ingredients: 11<br />rating: 0.4428571<br />Recipe_Index: AR_144","n_ingredients:  9<br />rating: 0.9243028<br />Recipe_Index: AR_15","n_ingredients: 10<br />rating: 0.9311352<br />Recipe_Index: AR_155","n_ingredients: 10<br />rating: 0.9242945<br />Recipe_Index: AR_156","n_ingredients: 12<br />rating: 0.8588235<br />Recipe_Index: AR_16","n_ingredients: 10<br />rating: 0.9170124<br />Recipe_Index: AR_164","n_ingredients:  7<br />rating: 0.8737288<br />Recipe_Index: AR_169","n_ingredients: 13<br />rating: 0.8800000<br />Recipe_Index: AR_19","n_ingredients:  5<br />rating: 0.5857143<br />Recipe_Index: AR_195","n_ingredients: 10<br />rating: 0.7859296<br />Recipe_Index: AR_196","n_ingredients:  8<br />rating: 0.7065217<br />Recipe_Index: AR_197","n_ingredients: 11<br />rating: 0.9379820<br />Recipe_Index: AR_2","n_ingredients: 10<br />rating: 0.8819445<br />Recipe_Index: AR_21","n_ingredients: 10<br />rating: 0.8774194<br />Recipe_Index: AR_218","n_ingredients:  5<br />rating: 0.8700000<br />Recipe_Index: AR_23","n_ingredients: 10<br />rating: 0.8702532<br />Recipe_Index: AR_256","n_ingredients: 11<br />rating: 0.9000000<br />Recipe_Index: AR_26","n_ingredients: 11<br />rating: 0.8769231<br />Recipe_Index: AR_27","n_ingredients: 11<br />rating: 0.8733334<br />Recipe_Index: AR_28","n_ingredients:  9<br />rating:       NaN<br />Recipe_Index: AR_280","n_ingredients:  9<br />rating: 0.9179868<br />Recipe_Index: AR_3","n_ingredients: 10<br />rating: 0.8598290<br />Recipe_Index: AR_30","n_ingredients: 10<br />rating: 0.8307693<br />Recipe_Index: AR_32","n_ingredients: 13<br />rating: 0.8266666<br />Recipe_Index: AR_33","n_ingredients:  9<br />rating: 0.8436363<br />Recipe_Index: AR_35","n_ingredients:  9<br />rating: 0.8000000<br />Recipe_Index: AR_37","n_ingredients: 14<br />rating: 0.6000000<br />Recipe_Index: AR_39","n_ingredients: 15<br />rating: 0.9229851<br />Recipe_Index: AR_4","n_ingredients: 10<br />rating: 0.8288660<br />Recipe_Index: AR_43","n_ingredients:  8<br />rating: 0.8210526<br />Recipe_Index: AR_45","n_ingredients:  9<br />rating: 0.7125000<br />Recipe_Index: AR_47","n_ingredients:  9<br />rating: 0.6777778<br />Recipe_Index: AR_48","n_ingredients: 12<br />rating: 0.5925926<br />Recipe_Index: AR_49","n_ingredients: 10<br />rating: 0.9373418<br />Recipe_Index: AR_5","n_ingredients: 10<br />rating: 0.6650000<br />Recipe_Index: AR_50","n_ingredients:  5<br />rating: 0.4761905<br />Recipe_Index: AR_52","n_ingredients: 11<br />rating: 0.6924731<br />Recipe_Index: AR_53","n_ingredients:  9<br />rating: 0.7237410<br />Recipe_Index: AR_54","n_ingredients:  9<br />rating: 0.3857143<br />Recipe_Index: AR_55","n_ingredients: 11<br />rating: 0.5955056<br />Recipe_Index: AR_57","n_ingredients:  9<br />rating: 0.9020029<br />Recipe_Index: AR_66","n_ingredients: 10<br />rating: 0.9391304<br />Recipe_Index: AR_67","n_ingredients: 11<br />rating: 0.9207921<br />Recipe_Index: AR_69","n_ingredients: 10<br />rating: 0.8963351<br />Recipe_Index: AR_7","n_ingredients: 13<br />rating: 0.9100381<br />Recipe_Index: AR_70","n_ingredients: 10<br />rating: 0.9151862<br />Recipe_Index: AR_78","n_ingredients:  9<br />rating: 0.6333333<br />Recipe_Index: AR_79","n_ingredients: 10<br />rating: 0.9424460<br />Recipe_Index: AR_8","n_ingredients: 11<br />rating: 0.9057377<br />Recipe_Index: AR_84","n_ingredients:  9<br />rating: 0.9555555<br />Recipe_Index: AR_88","n_ingredients: 10<br />rating: 0.9098901<br />Recipe_Index: AR_89","n_ingredients:  9<br />rating: 0.9026087<br />Recipe_Index: AR_90","n_ingredients: 13<br />rating: 0.9283019<br />Recipe_Index: AR_91","n_ingredients: 10<br />rating: 0.8440678<br />Recipe_Index: AR_95","n_ingredients: 14<br />rating: 0.8181818<br />Recipe_Index: AR_96","n_ingredients: 10<br />rating: 0.9333333<br />Recipe_Index: AR_97","n_ingredients:  9<br />rating: 0.9066667<br />Recipe_Index: AR_98","n_ingredients:  6<br />rating: 0.8583333<br />Recipe_Index: AR_99","n_ingredients:  7<br />rating: 0.7500000<br />Recipe_Index: E_133","n_ingredients: 10<br />rating: 0.5000000<br />Recipe_Index: E_146","n_ingredients:  6<br />rating: 0.5000000<br />Recipe_Index: E_169","n_ingredients: 11<br />rating: 0.8750000<br />Recipe_Index: E_197","n_ingredients:  9<br />rating: 0.7500000<br />Recipe_Index: E_21","n_ingredients: 12<br />rating: 0.8750000<br />Recipe_Index: E_215","n_ingredients: 11<br />rating: 0.7500000<br />Recipe_Index: E_220","n_ingredients:  9<br />rating: 0.8750000<br />Recipe_Index: E_230","n_ingredients: 11<br />rating: 0.7500000<br />Recipe_Index: E_258","n_ingredients: 11<br />rating: 0.8750000<br />Recipe_Index: E_26","n_ingredients: 10<br />rating: 0.6250000<br />Recipe_Index: E_362","n_ingredients: 10<br />rating: 0.7500000<br />Recipe_Index: E_375","n_ingredients: 11<br />rating: 1.0000000<br />Recipe_Index: E_399","n_ingredients:  8<br />rating: 0.7500000<br />Recipe_Index: E_509","n_ingredients: 11<br />rating: 0.7500000<br />Recipe_Index: E_79","n_ingredients:  7<br />rating: 0.7500000<br />Recipe_Index: E_87","n_ingredients: 10<br />rating: 0.3750000<br />Recipe_Index: E_88","n_ingredients:  9<br />rating: 0.8750000<br />Recipe_Index: E_89","n_ingredients: 10<br />rating: 1.0000000<br />Recipe_Index: E_91","n_ingredients: 11<br />rating:       NaN<br />Recipe_Index: Misc_1","n_ingredients:  9<br />rating:       NaN<br />Recipe_Index: Misc_10","n_ingredients: 11<br />rating:       NaN<br />Recipe_Index: Misc_100","n_ingredients: 11<br />rating:       NaN<br />Recipe_Index: Misc_101","n_ingredients: 10<br />rating:       NaN<br />Recipe_Index: Misc_102","n_ingredients: 10<br />rating:       NaN<br />Recipe_Index: Misc_103","n_ingredients:  8<br />rating:       NaN<br />Recipe_Index: Misc_104","n_ingredients:  8<br />rating:       NaN<br />Recipe_Index: Misc_105","n_ingredients:  9<br />rating:       NaN<br />Recipe_Index: Misc_106","n_ingredients:  5<br />rating:       NaN<br />Recipe_Index: Misc_107","n_ingredients: 11<br />rating:       NaN<br />Recipe_Index: Misc_108","n_ingredients: 13<br />rating:       NaN<br />Recipe_Index: Misc_109","n_ingredients: 10<br />rating:       NaN<br />Recipe_Index: Misc_11","n_ingredients: 11<br />rating:       NaN<br />Recipe_Index: Misc_110","n_ingredients: 10<br />rating:       NaN<br />Recipe_Index: Misc_111","n_ingredients: 10<br />rating:       NaN<br />Recipe_Index: Misc_112","n_ingredients:  8<br />rating:       NaN<br />Recipe_Index: Misc_113","n_ingredients:  7<br />rating:       NaN<br />Recipe_Index: Misc_114","n_ingredients:  9<br />rating:       NaN<br />Recipe_Index: Misc_12","n_ingredients:  9<br />rating:       NaN<br />Recipe_Index: Misc_13","n_ingredients:  8<br />rating:       NaN<br />Recipe_Index: Misc_14","n_ingredients: 10<br />rating:       NaN<br />Recipe_Index: Misc_15","n_ingredients:  9<br />rating:       NaN<br />Recipe_Index: Misc_16","n_ingredients: 10<br />rating:       NaN<br />Recipe_Index: Misc_17","n_ingredients: 12<br />rating:       NaN<br />Recipe_Index: Misc_18","n_ingredients: 12<br />rating:       NaN<br />Recipe_Index: Misc_19","n_ingredients:  9<br />rating:       NaN<br />Recipe_Index: Misc_2","n_ingredients: 10<br />rating:       NaN<br />Recipe_Index: Misc_20","n_ingredients: 11<br />rating:       NaN<br />Recipe_Index: Misc_21","n_ingredients:  9<br />rating:       NaN<br />Recipe_Index: Misc_22","n_ingredients:  8<br />rating:       NaN<br />Recipe_Index: Misc_23","n_ingredients: 10<br />rating:       NaN<br />Recipe_Index: Misc_24","n_ingredients:  4<br />rating:       NaN<br />Recipe_Index: Misc_25","n_ingredients: 10<br />rating:       NaN<br />Recipe_Index: Misc_26","n_ingredients:  9<br />rating:       NaN<br />Recipe_Index: Misc_27","n_ingredients:  9<br />rating:       NaN<br />Recipe_Index: Misc_28","n_ingredients: 10<br />rating:       NaN<br />Recipe_Index: Misc_29","n_ingredients:  5<br />rating:       NaN<br />Recipe_Index: Misc_3","n_ingredients: 13<br />rating:       NaN<br />Recipe_Index: Misc_30","n_ingredients: 10<br />rating:       NaN<br />Recipe_Index: Misc_31","n_ingredients:  9<br />rating:       NaN<br />Recipe_Index: Misc_32","n_ingredients:  9<br />rating:       NaN<br />Recipe_Index: Misc_33","n_ingredients:  8<br />rating:       NaN<br />Recipe_Index: Misc_34","n_ingredients:  9<br />rating:       NaN<br />Recipe_Index: Misc_35","n_ingredients:  9<br />rating:       NaN<br />Recipe_Index: Misc_36","n_ingredients: 10<br />rating:       NaN<br />Recipe_Index: Misc_37","n_ingredients: 10<br />rating:       NaN<br />Recipe_Index: Misc_38","n_ingredients: 10<br />rating:       NaN<br />Recipe_Index: Misc_39","n_ingredients:  5<br />rating:       NaN<br />Recipe_Index: Misc_4","n_ingredients: 10<br />rating:       NaN<br />Recipe_Index: Misc_40","n_ingredients:  9<br />rating:       NaN<br />Recipe_Index: Misc_41","n_ingredients:  8<br />rating:       NaN<br />Recipe_Index: Misc_42","n_ingredients:  8<br />rating:       NaN<br />Recipe_Index: Misc_43","n_ingredients:  9<br />rating:       NaN<br />Recipe_Index: Misc_44","n_ingredients:  9<br />rating:       NaN<br />Recipe_Index: Misc_45","n_ingredients: 10<br />rating:       NaN<br />Recipe_Index: Misc_46","n_ingredients: 10<br />rating:       NaN<br />Recipe_Index: Misc_47","n_ingredients: 12<br />rating:       NaN<br />Recipe_Index: Misc_48","n_ingredients: 11<br />rating:       NaN<br />Recipe_Index: Misc_49","n_ingredients:  9<br />rating:       NaN<br />Recipe_Index: Misc_5","n_ingredients: 11<br />rating:       NaN<br />Recipe_Index: Misc_50","n_ingredients: 10<br />rating:       NaN<br />Recipe_Index: Misc_51","n_ingredients: 12<br />rating:       NaN<br />Recipe_Index: Misc_52","n_ingredients:  7<br />rating:       NaN<br />Recipe_Index: Misc_53","n_ingredients: 10<br />rating:       NaN<br />Recipe_Index: Misc_54","n_ingredients: 11<br />rating:       NaN<br />Recipe_Index: Misc_55","n_ingredients:  9<br />rating:       NaN<br />Recipe_Index: Misc_56","n_ingredients:  8<br />rating:       NaN<br />Recipe_Index: Misc_6","n_ingredients:  7<br />rating:       NaN<br />Recipe_Index: Misc_60","n_ingredients: 10<br />rating:       NaN<br />Recipe_Index: Misc_61","n_ingredients: 10<br />rating:       NaN<br />Recipe_Index: Misc_62","n_ingredients: 13<br />rating:       NaN<br />Recipe_Index: Misc_63","n_ingredients: 10<br />rating:       NaN<br />Recipe_Index: Misc_64","n_ingredients:  9<br />rating:       NaN<br />Recipe_Index: Misc_65","n_ingredients:  1<br />rating:       NaN<br />Recipe_Index: Misc_66","n_ingredients:  9<br />rating:       NaN<br />Recipe_Index: Misc_67","n_ingredients:  9<br />rating:       NaN<br />Recipe_Index: Misc_68","n_ingredients:  9<br />rating:       NaN<br />Recipe_Index: Misc_69","n_ingredients: 10<br />rating:       NaN<br />Recipe_Index: Misc_7","n_ingredients: 10<br />rating:       NaN<br />Recipe_Index: Misc_70","n_ingredients:  3<br />rating:       NaN<br />Recipe_Index: Misc_71","n_ingredients:  6<br />rating:       NaN<br />Recipe_Index: Misc_72","n_ingredients: 11<br />rating:       NaN<br />Recipe_Index: Misc_73","n_ingredients:  9<br />rating:       NaN<br />Recipe_Index: Misc_74","n_ingredients: 10<br />rating:       NaN<br />Recipe_Index: Misc_75","n_ingredients: 10<br />rating:       NaN<br />Recipe_Index: Misc_76","n_ingredients:  9<br />rating:       NaN<br />Recipe_Index: Misc_77","n_ingredients:  5<br />rating:       NaN<br />Recipe_Index: Misc_78","n_ingredients:  7<br />rating:       NaN<br />Recipe_Index: Misc_79","n_ingredients: 12<br />rating:       NaN<br />Recipe_Index: Misc_8","n_ingredients:  9<br />rating:       NaN<br />Recipe_Index: Misc_80","n_ingredients: 11<br />rating:       NaN<br />Recipe_Index: Misc_81","n_ingredients:  9<br />rating:       NaN<br />Recipe_Index: Misc_82","n_ingredients:  8<br />rating:       NaN<br />Recipe_Index: Misc_83","n_ingredients:  7<br />rating:       NaN<br />Recipe_Index: Misc_84","n_ingredients: 12<br />rating:       NaN<br />Recipe_Index: Misc_85","n_ingredients: 10<br />rating:       NaN<br />Recipe_Index: Misc_86","n_ingredients:  7<br />rating:       NaN<br />Recipe_Index: Misc_87","n_ingredients:  9<br />rating:       NaN<br />Recipe_Index: Misc_89","n_ingredients: 10<br />rating:       NaN<br />Recipe_Index: Misc_9","n_ingredients:  9<br />rating:       NaN<br />Recipe_Index: Misc_90","n_ingredients:  9<br />rating:       NaN<br />Recipe_Index: Misc_91","n_ingredients:  6<br />rating:       NaN<br />Recipe_Index: Misc_92","n_ingredients:  8<br />rating:       NaN<br />Recipe_Index: Misc_93","n_ingredients: 11<br />rating:       NaN<br />Recipe_Index: Misc_94","n_ingredients:  5<br />rating:       NaN<br />Recipe_Index: Misc_95","n_ingredients:  9<br />rating:       NaN<br />Recipe_Index: Misc_96","n_ingredients:  7<br />rating:       NaN<br />Recipe_Index: Misc_97","n_ingredients:  7<br />rating:       NaN<br />Recipe_Index: Misc_98","n_ingredients:  9<br />rating:       NaN<br />Recipe_Index: Misc_99"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":40.840182648401829,"r":7.3059360730593621,"b":37.260273972602747,"l":43.105022831050235},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"Ingredients vs Rating","font":{"color":"rgba(0,0,0,1)","family":"","size":17.534246575342465},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.25,16.75],"tickmode":"array","ticktext":["4","8","12","16"],"tickvals":[4,8,12,16],"categoryorder":"array","categoryarray":["4","8","12","16"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"Number of ingredients","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.34375,1.03125],"tickmode":"array","ticktext":["0.4","0.6","0.8","1.0"],"tickvals":[0.40000000000000002,0.60000000000000009,0.80000000000000004,1],"categoryorder":"array","categoryarray":["0.4","0.6","0.8","1.0"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Recipe rating","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"17883d031962":{"x":{},"y":{},"label":{},"type":"scatter"}},"cur_data":"17883d031962","visdat":{"17883d031962":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>[Part 2] Write 2-3 sentences about what you can learn from that plot and what directions you might want to investigate from here.</p>
+<p><em>There seems to be no clear pattern between the number of ingredients and the rating of the recipe. A correlation metric would be able to give a more solid answer, but it appears more complicated recipes are not inherently better. The lowest ratings and highest ratings share the same number of ingredients. Additionally, with the first plot, we can see that there is a significant left skew. This is expected since rating is a decimal number between 0 and 1. People are more likely to rate a recipe for cookies on the higher end since they are sweet (majority of the time).</em></p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
